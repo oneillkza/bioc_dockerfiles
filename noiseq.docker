@@ -1,4 +1,4 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_15
+FROM bioconductor/bioconductor_docker:RELEASE_3_14
 
 # Main package:
 RUN R -e 'BiocManager::install("NOISeq")'
