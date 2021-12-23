@@ -1,0 +1,5 @@
+FROM bioconductor/bioconductor_docker:RELEASE_3_15
+
+# Main package:
+RUN R -e 'BiocManager::install("bambu")'
+RUN R -e 'BiocManager::install("NanoporeRNASeq")'
