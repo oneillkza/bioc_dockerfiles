@@ -1,0 +1,7 @@
+FROM bioconductor/bioconductor_docker:RELEASE_3_15
+
+# Main package:
+RUN R -e 'BiocManager::install("NOISeq")'
+
+# Auxiliary packages (data.table is good for reading in big expression files):
+RUN R -e 'install.packages("data.table")'
