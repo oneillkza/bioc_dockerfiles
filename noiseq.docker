@@ -3,5 +3,9 @@ FROM bioconductor/bioconductor_docker:RELEASE_3_14
 # Main package:
 RUN R -e 'BiocManager::install("NOISeq")'
 
-# Auxiliary packages (data.table is good for reading in big expression files):
+## Auxiliary packages 
+#data.table is good for reading in big expression files:
 RUN R -e 'install.packages("data.table")'
+
+#dplyr is useful for merging multiple samples into NOISeq format
+RUN R -e 'install.packages("dplyr")'
