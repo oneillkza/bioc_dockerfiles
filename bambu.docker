@@ -3,3 +3,7 @@ FROM bioconductor/bioconductor_docker:RELEASE_3_14
 # Main package:
 RUN R -e 'BiocManager::install("bambu")'
 RUN R -e 'BiocManager::install("NanoporeRNASeq")'
+
+## Auxialiary packages not listed as dependencies:
+# BSgenome is needed to run the example in the vignette, and in general:
+RUN R -e 'BiocManager::install("BSgenome")'
