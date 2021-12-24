@@ -1,5 +1,5 @@
 FROM continuumio/miniconda3
 
-RUN conda install samtools:1.14
-RUN conda install sambamba:0.8.1
-RUN conda install minimap2:2.23
+RUN conda install samtools=1.14
+RUN conda install sambamba=0.8.1
+RUN conda install minimap2=2.23
