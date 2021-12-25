@@ -1,6 +1,10 @@
 FROM continuumio/miniconda3
 
+## Install gcc for pip iced install
+RUN apt-get update && apt-get install -y gcc g++ && apt-get clean -y
+
 RUN conda config --add channels bioconda
+RUN conda config --add channels conda-forge
 
 RUN conda install samtools=1.14
 RUN conda install sambamba=0.8.1
