@@ -8,8 +8,8 @@ ARG MINIMAP2_VER="2.24"
 # install deps and cleanup apt garbage
 RUN apt-get update && apt-get install -y python \
  curl \
- bzip2 && \
- samtools && \
+ bzip2 \
+ samtools \
  sambamba && \
  apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
