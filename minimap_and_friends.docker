@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:hirsute
 
 # Somewhat derived from https://hub.docker.com/r/staphb/minimap2/dockerfile
 
