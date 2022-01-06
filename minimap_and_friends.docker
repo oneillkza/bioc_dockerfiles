@@ -1,12 +1,21 @@
-FROM continuumio/miniconda3
+FROM ubuntu:focal
 
-## Install gcc for pip iced install
-RUN apt-get update && apt-get install -y gcc g++ && apt-get clean -y
+# Somewhat derived from https://hub.docker.com/r/staphb/minimap2/dockerfile
 
-RUN conda update -n base -c defaults conda
-RUN conda config --add channels bioconda
-RUN conda config --add channels conda-forge
+# for easy upgrade later. ARG variables only persist during image build time
+ARG MINIMAP2_VER="2.24"
 
-RUN conda install samtools=1.14
-RUN conda install sambamba=0.8.1
-RUN conda install minimap2=2.23
+# install deps and cleanup apt garbage
+RUN apt-get update && apt-get install -y python \
+ curl \
+ bzip2 && 
+ samtools && 
+ sambamba && \
+ apt-get autoclean && rm -rf /var/lib/apt/lists/*
+
+# install minimap2 binary; make /data
+RUN curl -L https://github.com/lh3/minimap2/releases/download/v${MINIMAP2_VER}/minimap2-${MINIMAP2_VER}_x64-linux.tar.bz2 | tar -jxvf - && \
+ mkdir /data
+
+ENV PATH="${PATH}:/minimap2-${MINIMAP2_VER}_x64-linux"
+WORKDIR /data
