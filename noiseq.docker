@@ -9,3 +9,7 @@ RUN R -e 'install.packages("data.table")'
 
 #dplyr is useful for merging multiple samples into NOISeq format
 RUN R -e 'install.packages("dplyr")'
+
+
+#in practice we want to annotate the output using rtracklayer:
+RUN R -e 'BiocManager::install("rtracklayer")'
