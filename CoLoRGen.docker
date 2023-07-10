@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y python3 \
  apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 # install minimap2 binary
-RUN curl -L https://github.com/lh3/minimap2/releases/download/v${MINIMAP2_VER}/minimap2-${MINIMAP2_VER}_x64-linux.tar.bz2 | tar -jxvf - && \
+RUN curl -L https://github.com/lh3/minimap2/releases/download/v${MINIMAP2_VER}/minimap2-${MINIMAP2_VER}_x64-linux.tar.bz2 | tar -jxvf - 
 
 ENV PATH="${PATH}:/minimap2-${MINIMAP2_VER}_x64-linux"
 
