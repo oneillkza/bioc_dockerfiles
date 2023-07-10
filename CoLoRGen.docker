@@ -8,13 +8,6 @@ ARG MINIMAP2_VER="2.24"
 ENV DEBIAN_FRONTEND=noninteractive
 
 
-# CoLoRGen wants a specific version of medaka (1.4.3) which requires 3.5 < Python < 3.9
-# The deadsnakes PPA contains old Python versions for this purpose:
-#RUN apt-get update
-#RUN apt-get install -y software-properties-common
-#RUN add-apt-repository ppa:deadsnakes/ppa
-#RUN apt-get update
-
 # install deps and cleanup apt garbage
 RUN apt-get update && apt-get install -y python3 \
  python3-pip \
@@ -27,9 +20,8 @@ RUN apt-get update && apt-get install -y python3 \
  sambamba && \
  apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
-# install minimap2 binary; make /data
+# install minimap2 binary
 RUN curl -L https://github.com/lh3/minimap2/releases/download/v${MINIMAP2_VER}/minimap2-${MINIMAP2_VER}_x64-linux.tar.bz2 | tar -jxvf - && \
- mkdir /data
 
 ENV PATH="${PATH}:/minimap2-${MINIMAP2_VER}_x64-linux"
 
