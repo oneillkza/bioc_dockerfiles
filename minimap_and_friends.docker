@@ -1,4 +1,4 @@
-FROM ubuntu:hirsute
+FROM ubuntu:24.04
 
 # Somewhat derived from https://hub.docker.com/r/staphb/minimap2/dockerfile
 
