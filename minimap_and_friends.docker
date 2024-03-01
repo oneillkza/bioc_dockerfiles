@@ -6,7 +6,7 @@ FROM ubuntu:24.04
 ARG MINIMAP2_VER="2.26"
 
 # install deps and cleanup apt garbage
-RUN apt-get update && apt-get install -y python \
+RUN apt-get update && apt-get install -y python-is-python3 \
  curl \
  bzip2 \
  samtools \
