@@ -3,7 +3,7 @@ FROM ubuntu:hirsute
 # Somewhat derived from https://hub.docker.com/r/staphb/minimap2/dockerfile
 
 # for easy upgrade later. ARG variables only persist during image build time
-ARG MINIMAP2_VER="2.24"
+ARG MINIMAP2_VER="2.26"
 
 # install deps and cleanup apt garbage
 RUN apt-get update && apt-get install -y python \
